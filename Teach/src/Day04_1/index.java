@@ -12,6 +12,7 @@ public class index {
 		Runnable my = new RunnableThreadStudy();
 		// 刚刚Eclipse发什么神经。。
 		// 我们看到了分配是完全不规律的，CPU的算法我们也不知道。
+		// 测试github
 		Thread t = new Thread(my);
 		// 这里为什么，没有Start呢，因为，我们实现的是接口，接口里面没有提供
 		// Start 方法。
