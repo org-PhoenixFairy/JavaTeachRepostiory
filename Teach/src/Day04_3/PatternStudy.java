@@ -14,5 +14,6 @@ public class PatternStudy {
 	
 		System.out.println(Checker.isEmail("847072154@qq.com"));
 		
+		// 测试该电子邮件判断方法 
 	} 
 }
