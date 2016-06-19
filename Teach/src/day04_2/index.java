@@ -4,6 +4,8 @@ package day04_2;
  * 
  * @author Axoford12 这里讲线程的优先级设置
  * TestCommit
+ * 
+ * TestUpdate
  */
 public class index {
 
