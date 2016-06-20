@@ -1,5 +1,10 @@
 package day04_2;
-
+/**
+ * 
+ * 
+ * @author Axford12
+ *
+ */
 public class MyThread1 extends Thread{
 
 	@Override
