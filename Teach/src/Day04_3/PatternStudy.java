@@ -13,7 +13,7 @@ public class PatternStudy {
 	public static void main(String[] args) {
 	
 		System.out.println(Checker.isEmail("847072154@qq.com"));
-		
+		System.out.println(Checker.isEmail("602228173qq.com"));
 		// 测试该电子邮件判断方法 
 	} 
 }
