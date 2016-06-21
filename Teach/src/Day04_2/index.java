@@ -1,4 +1,4 @@
-package day04_2;
+package Day04_2;
 
 /**
  * 
