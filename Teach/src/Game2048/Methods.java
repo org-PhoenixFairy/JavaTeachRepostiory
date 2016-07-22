@@ -76,30 +76,34 @@ public class Methods {
 						mtr[3][i] = 0;
 						mtr[1][i] = p.get(2)[0];
 						mtr[0][i] = p.get(0)[0] * 2;
-						
 
 					} else if (p.get(1)[0] == p.get(2)[0]) {
 						mtr[1][i] = p.get(1)[0] * 2;
 					} else {
-						
+
 					}
 				} else if (p.size() == 4) {
-					if ((p.get(0)[0] == p.get(1)[0]) && (p.get(2)[0] != p.get(3)[0])){
+					if ((p.get(0)[0] == p.get(1)[0]) && (p.get(2)[0] != p.get(3)[0])) {
 						mtr[0][i] = p.get(0)[0] * 2;
 						mtr[1][i] = p.get(1)[0];
 						mtr[2][i] = p.get(3)[0];
 						mtr[3][i] = 0;
-					} else if ((p.get(0)[0] == p.get(1)[0]) && (p.get(2)[0] == p.get(3)[0])){
+					} else if ((p.get(0)[0] == p.get(1)[0]) && (p.get(2)[0] == p.get(3)[0])) {
 						mtr[0][i] = p.get(0)[0] * 2;
 						mtr[1][i] = p.get(2)[0] * 2;
 						mtr[2][i] = 0;
 						mtr[3][i] = 0;
+					} else if ((p.get(0)[0] != p.get(1)[0]) && (p.get(2)[0] == p.get(3)[0])) {
+						mtr[2][i] = p.get(0)[0] * 2;
+						mtr[3][i] = 0;
 					}
-					// Update : 2016/7/22
+					// Update : 2016/7/23/0:17
 				}
 
 			}
+			
 
+			
 		} else if (name == 2) {
 			// Down
 		} else if (name == 3) {
@@ -107,8 +111,26 @@ public class Methods {
 		} else if (name == 4) {
 			// Right
 		} else {
-			
+
 		}
+		addRandomNumber(mtr);
+	}
+
+	public static void addRandomNumber(int[][] mtr) {
+		ArrayList<Integer[]> l = new ArrayList<Integer[]>();;
+		for (int i = 0; i < mtr.length; i++) {
+			for (int j = 0; j < mtr[i].length; j++) {
+				
+				if (mtr[i][j] == 0) {
+					Integer[] add = { i, j };
+					l.add(add);
+				}
+			}
+		}
+//		System.out.println(l.size());
+		int di = (int) (Math.random() * l.size());
+		Integer[] p = l.get(di);
+		mtr[p[0]][p[1]] = ramdomNumber[(int) (Math.random() * 2)];
 	}
 
 }
