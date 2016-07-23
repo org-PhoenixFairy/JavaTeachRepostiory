@@ -9,8 +9,8 @@ public class Main {
 		System.out.println("----------------");
 		Methods.display(mtr);
 		System.out.println("---------------------------");
-		int[][] mtr2 = { { 2, 2, 2, 2 }, { 2, 2, 2, 2 }, { 2, 2, 2, 2 }, { 2, 2, 2, 2 } };
-
+		int[][] mtr2 = {{0,0,0,0},{2,0,0,0},{2,0,0,2},{0,0,0,0}};
+ 
 		Methods.display(mtr2);
 		Methods.move(mtr2, 1);
 		System.out.println("----------------");

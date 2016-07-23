@@ -62,7 +62,10 @@ public class Methods {
 
 				} else if (p.size() == 2) {
 					if (p.get(0)[0] == p.get(1)[0]) {
+						mtr[p.get(0)[1]][i] = 0;
+						mtr[p.get(1)[1]][i] = 0;
 						mtr[0][i] = p.get(0)[0] * 2;
+
 					} else {
 						mtr[p.get(0)[1]][i] = 0;
 						mtr[0][i] = p.get(0)[0];
@@ -97,15 +100,79 @@ public class Methods {
 						mtr[2][i] = p.get(0)[0] * 2;
 						mtr[3][i] = 0;
 					}
-					// Update : 2016/7/23/0:17
+				} else {
+
 				}
 
 			}
-			
 
-			
 		} else if (name == 2) {
-			// Down
+			ArrayList<Integer[]> notZeroNumbers = null; // Find number add if it
+														// is not '0'
+			for (int i = 0; i < 4; i++) {
+				notZeroNumbers = new ArrayList<Integer[]>(); // 循环一列重新初始化集合
+				for (int j = 0; j < 4; j++) {
+
+					if (mtr[j][i] == 0) {
+						Integer[] addValue = { mtr[j][i], j, i };
+						notZeroNumbers.add(addValue);
+						// 在循环内部把每个非零数的值和坐标添加到集合
+					}
+
+				} // i
+					// 0 1 2 3
+					// -------------------------
+					// 0 |
+					// 1 |
+					// 2 |
+					// 3 |
+					// 遍历一行后对集合进行处理,把新的数据写入mtr数据数组
+				int count = notZeroNumbers.size();
+				if (count == 1) {
+
+					mtr[3][i] = notZeroNumbers.get(0)[0];
+				} else if (count == 2) {
+					mtr[0][i] = 0;
+					mtr[1][i] = 0;
+					if (notZeroNumbers.get(0)[0] == notZeroNumbers.get(1)[0]) {
+						mtr[2][i] = 0;
+						mtr[3][i] = notZeroNumbers.get(0)[0] * 2;
+
+					} else {
+						mtr[2][i] = notZeroNumbers.get(0)[0];
+						mtr[3][i] = notZeroNumbers.get(0)[0];
+					}
+				} else if (count == 3) {
+					mtr[0][i] = 0;
+					if (notZeroNumbers.get(0)[0] == notZeroNumbers.get(1)[0]) {
+						mtr[1][i] = 0;
+						if (notZeroNumbers.get(1)[0] == notZeroNumbers.get(2)[0]) {
+							mtr[2][i] = notZeroNumbers.get(0)[0];
+							mtr[3][i] = notZeroNumbers.get(1)[0] * 2;
+						} else {
+							mtr[2][i] = notZeroNumbers.get(0)[0] * 2;
+							mtr[3][i] = notZeroNumbers.get(2)[0] * 2;
+						}
+					} else {
+						if (notZeroNumbers.get(1) == notZeroNumbers.get(2)){
+							mtr[1][i] = 0;
+							mtr[2][i] = notZeroNumbers.get(0)[0];
+							mtr[3][i] = notZeroNumbers.get(1)[0]*2;
+							
+						} else {
+							mtr[1][i] = notZeroNumbers.get(0)[0];
+							mtr[2][i] = notZeroNumbers.get(1)[0];
+							mtr[3][i] = notZeroNumbers.get(2)[0];
+						}
+					}
+				} else if (count == 4){
+					if(notZeroNumbers.get(0)[0] == notZeroNumbers.get(1)[0]){
+						if(notZeroNumbers.get(1)[0] == notZeroNumbers.get(2)[0]){
+							
+						}
+					}
+				}
+			}
 		} else if (name == 3) {
 			// Left
 		} else if (name == 4) {
@@ -117,17 +184,18 @@ public class Methods {
 	}
 
 	public static void addRandomNumber(int[][] mtr) {
-		ArrayList<Integer[]> l = new ArrayList<Integer[]>();;
+		ArrayList<Integer[]> l = new ArrayList<Integer[]>();
+		;
 		for (int i = 0; i < mtr.length; i++) {
 			for (int j = 0; j < mtr[i].length; j++) {
-				
+
 				if (mtr[i][j] == 0) {
 					Integer[] add = { i, j };
 					l.add(add);
 				}
 			}
 		}
-//		System.out.println(l.size());
+		// System.out.println(l.size());
 		int di = (int) (Math.random() * l.size());
 		Integer[] p = l.get(di);
 		mtr[p[0]][p[1]] = ramdomNumber[(int) (Math.random() * 2)];
