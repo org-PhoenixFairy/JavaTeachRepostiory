@@ -1,20 +1,30 @@
 package Game2048;
 
+import java.util.Scanner;
+
 public class Main {
 
 	public static void main(String[] args) {
 		int[][] mtr = Methods.initial();
-		Methods.display(mtr);
-		Methods.move(mtr, 1);
-		System.out.println("----------------");
-		Methods.display(mtr);
-		System.out.println("---------------------------");
-		int[][] mtr2 = {{0,0,0,0},{2,0,0,0},{2,0,0,2},{0,0,0,0}};
- 
-		Methods.display(mtr2);
-		Methods.move(mtr2, 1);
-		System.out.println("----------------");
-		Methods.display(mtr2);
-		// Success!
+		String str = null;
+		Scanner sc = new Scanner(System.in);
+		while(true){
+			Methods.display(mtr);
+			System.out.println("------------------");
+			str = sc.nextLine();
+			if(str.equals("w")){
+				Methods.move(mtr, 1);
+			}else if(str.equals("s")){
+				Methods.move(mtr, 2);
+			}else if(str.equals("a")){
+				Methods.move(mtr, 3);
+			}else if(str.equals("d")){
+				Methods.move(mtr, 4);
+			}else if(str.equals("e")){
+				break;
+			}
+		}
+		sc.close();
+		
 	}
 }
